@@ -7,7 +7,8 @@
   --main: #082032;
   --secondary: #2C394B;
   --tertiary: #334756;
-  --accent: #FF4C29;    
+  --accent: #FF4C29;
+  --accentRGB: 255, 76, 41;
 }
   
 body {
@@ -82,7 +83,8 @@ a:hover {
 
 header,
 .tag,
-.card {
+.card,
+.hobby_footer {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -106,7 +108,7 @@ header .profile-image {
 }
 
 header .profile-image:hover {
-  animation: pulse-accent 2s infinite; 
+  animation: accentBubble 1.5s infinite; 
 }
 
 .tag {
@@ -210,6 +212,50 @@ a.social:hover {
   background-color: var(--main);
 }
 
+#ExperienceBody .card {
+  border-radius: 0;
+}
+
+/* Styles for Hobbies Page That Need Selector Priority */
+#HobbiesBody {
+  background-color: var(--accent);
+}
+
+.hobbies {
+  background-color: var(--main);
+}
+
+.hobbies:hover {
+  border-color: var(--tertiary);
+}
+
+#Hobby1,
+.hobbies > p {
+  color: white !important;
+}
+
+#Hobby1 {
+  text-align: center;
+}
+
+.img_trap {
+  width: 75%;
+  margin-inline: auto;
+}
+
+.img_trap img {
+  width: 100%;
+  border-radius: 50%;
+  filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 0.5));
+}
+
+.hobby_footer {
+  width: 100px;
+  margin-inline: auto;
+  padding: .75rem .5rem;
+  border-radius: 10px;
+  background-color: white; 
+}
 
 
 /* Styles for larger screens */
@@ -251,20 +297,21 @@ a.social:hover {
 
 }
 
-@keyframes pulse-accent {
+
+@keyframes accentBubble {
   0% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(255, 76, 41, 0.7);
+    transform: scale(0.97);
+    box-shadow: 0 0 0 0 rgba(var(--accentRGB), 0.7);
   }
   
   70% {
     transform: scale(1);
-    box-shadow: 0 0 0 20px rgba(255, 76, 41, 0);
+    box-shadow: 0 0 0 20px rgba(var(--accentRGB), 0);
   }
   
   100% {
-    transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(255, 76, 41, 0);
+    transform: scale(0.97);
+    box-shadow: 0 0 0 0 rgba(var(--accentRGB), 0);
   }
 }
 
